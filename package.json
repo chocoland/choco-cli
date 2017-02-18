@@ -1,0 +1,24 @@
+{
+  "name": "choco-cli",
+  "version": "0.0.2",
+  "description": "Chocoland.js toolkits",
+  "main": "./bin/choco.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chocoland.js",
+    "choco",
+    "toolkit"
+  ],
+  "author": "Jeferson De Freitas",
+  "license": "GPL-3.0",
+  "bin": {
+    "choco": "./bin/choco.js"
+  },
+  "devDependencies": {
+    "mime": "^1.3.4",
+    "spdy": "^3.4.4",
+    "watch": "^1.0.2"
+  }
+}
