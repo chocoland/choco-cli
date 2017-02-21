@@ -11,6 +11,10 @@
     "choco",
     "toolkit"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chocoland/choco_cli.git"
+  },
   "author": "Jeferson De Freitas",
   "license": "GPL-3.0",
   "bin": {
