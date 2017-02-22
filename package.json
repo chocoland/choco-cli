@@ -20,7 +20,7 @@
   "bin": {
     "choco": "./bin/choco.js"
   },
-  "devDependencies": {
+  "dependencies": {
     "mime": "^1.3.4",
     "spdy": "^3.4.4",
     "watch": "^1.0.2"

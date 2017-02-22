@@ -26,6 +26,7 @@ var commands = {
       'usage: choco server [path] [options]',
       '',
       'options:',
+      '  -d           dir(public)',
       '  -p           Port to use [3000]',
       '  -a           Address to use [0.0.0.0]',
       '  -U           Use UTC time format in log messages.',
@@ -49,6 +50,14 @@ var commands = {
       console.error("invalid port");
       process.exit();
     }
+  },
+  "-d": () => {
+    // dir
+    //if (typeof argv[2] == "number" && argv[2] >= 0 && argv[2] <= 65535) {
+      local = argv[2];
+      argv = argv.splice(1, 1);
+      argv = argv.splice(1, 1);
+    //}
   },
   "-a": () => {
     // address
