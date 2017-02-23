@@ -1,23 +1,22 @@
 #!/usr/bin/env node
-
 var spdy = require('spdy');
 var fs = require('fs');
 var mime = require('mime');
 var root = [];
-var local = 'public/';
+var local = process.cwd();
 var argv = process.argv;
 var port = 3000;
 var address = "0.0.0.0";
 var cert;
 var key;
 var watch = require('watch');
+var path = require('path');
 
 // drop node path and file path
 argv.reverse();
 argv.pop();
 argv.pop();
 argv.reverse();
-
 
 var commands = {
   "-h": () => {
@@ -43,8 +42,8 @@ var commands = {
     // port
     if (typeof argv[2] == "number" && argv[2] >= 0 && argv[2] <= 65535) {
       port = argv[2];
-      argv = argv.splice(1, 1);
-      argv = argv.splice(1, 1);
+      argv.splice(1, 1);
+      argv.splice(1, 1);
     }
     else {
       console.error("invalid port");
@@ -55,15 +54,12 @@ var commands = {
     // dir
     //if (typeof argv[2] == "number" && argv[2] >= 0 && argv[2] <= 65535) {
       local = argv[2];
-      argv = argv.splice(1, 1);
-      argv = argv.splice(1, 1);
+      argv.splice(1, 1);
+      argv.splice(1, 1);
     //}
   },
   "-a": () => {
     // address
-  },
-  "-d": () => {
-    // dir
   },
   "-s": () => {
     // ssl
@@ -72,8 +68,8 @@ var commands = {
     // cert
     if (typeof argv[2] == "string") {
       cert = argv[2];
-      argv = argv.splice(1, 1);
-      argv = argv.splice(1, 1);
+      argv.splice(1, 1);
+      argv.splice(1, 1);
     }
     else {
       console.error("invalid port");
@@ -84,8 +80,8 @@ var commands = {
     // key
     if (typeof argv[2] == "string") {
       key = argv[2];
-      argv = argv.splice(1, 1);
-      argv = argv.splice(1, 1);
+      argv.splice(1, 1);
+      argv.splice(1, 1);
     }
     else {
       console.error("invalid port");
@@ -102,11 +98,11 @@ if (argv[0] == "server") {
       commands["-h"]();
   }
   // pack the server
-  serv();
+  console.log("run");
+  serv(root);
 }
 
-function serv() {
-
+function serv(root) {
   function readFile(file) {
     return new Promise((success, fail) => {
       fs.readFile(file, function (err, data) {
@@ -120,11 +116,17 @@ function serv() {
     });
   }
   function assign(i) {
+    //console.log(i);
     fs.stat(i, (err, stats) => {
       if (!stats.isDirectory()) {
         var file = readFile(i);
         file.then((success) => {
-          root["/" + i.replace(local, "")] = success;
+          var file = "/" + i.replace(local, "");
+
+          // windowa path
+          file = file.replace(/\\/g, "/");
+
+          root[file] = success;
         }); 
         file.catch((err) => {
           console.log("err");
@@ -160,21 +162,41 @@ function serv() {
     }
     
   })
-  var opt = new Promise((success) => {
+  var opt = new Promise((success, fail) => {
+    var err1, err2, error = "";
     var options = {};
-    if (key) 
-      options.key = fs.readFileSync(key);
-    if (cert)  
-      options.cert = fs.readFileSync(cert);
+    if (key) {
+      try {
+        options.key = fs.readFileSync(key);
+      } catch (err) {
+        err1 = err;
+      }
+    }
+
+    if (cert) {
+      try {
+        options.cert = fs.readFileSync(cert);
+      } catch (err) {
+        err2 = err;
+      }
+    }
+
+    if (err1) error += err1;
+    if (err2) error += err2;
+    if (error != "") fail(error);
     success(options);
   });
   
   
   opt.then((options) => {
-    console.log(argv);
-
+    console.log(root);
+    console.log(process.cwd());
     var server = spdy.createServer(options, function(req, res) {
       var url = req.url;
+      console.log(root[url]);
+      for (i in root) {
+        console.log(i);
+      }
       //res.writeHead(200, {"Content-Type": mime.lookup(url != '/' ? url : '/index.html')});
       if (url.substr(-1) == "/") {
         res.writeHead(200, {"Content-Type": mime.lookup(url + "index.html")});
@@ -193,6 +215,12 @@ function serv() {
       }
     });
 
-    server.listen(port);
+    opt.catch((error) => {
+      console.error(error);
+    });
+
+    server.listen(port, () => {
+      console.log("server is started in " + port);
+    });
   });
 }
