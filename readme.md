@@ -1,10 +1,10 @@
-## How to install
+# How to install
 
 ```fish
 npm i -g choco-cli
 ```
 
-# Choco server commands
+## Choco server commands
 
 ```fish
 usage: choco server [path] [options]'
