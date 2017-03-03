@@ -1,10 +1,27 @@
 # How to install
 
 ```fish
-npm i -g choco-cli
+# npm i -g choco-cli
+```
+## Choco server with config file
+
+```fish
+$ cd any/path
+$ touch choco.json
+$ nano choco.json
+```
+```json
+{
+  "server": {
+    "path": "./public-folder",
+    "port": 3000,
+    "key": "../path/to/server.key",
+    "cert": "../path/to/server.crt"
+  }
+}
 ```
 
-## Choco server commands
+## Choco server with commands
 
 ```fish
 usage: choco server [path] [options]'
@@ -22,8 +39,12 @@ options:'
   -h --help    Print this list and exit.'
 ```
 
-## lister server
+## listen server 
 
 ```fish
-choco server -d ./public-folder -c ../path/to/server.crt -d ./ -k ../path/to/server.key
+$ choco server
+```
+or
+```fish
+$ choco server -d ./public-folder -c ../path/to/server.crt -d ./ -k ../path/to/server.key
 ```
