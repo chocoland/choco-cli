@@ -1,0 +1,119 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'publish' ]
+2 info using npm@4.1.2
+3 info using node@v7.5.0
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: 'C:\\Users\\Jeferson\\prog\\choco-cli',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory C:\Users\Jeferson\AppData\Roaming\npm-cache\choco-cli\0.0.3\package.tgz not in flight; packing
+9 verbose correctMkdir C:\Users\Jeferson\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+10 info lifecycle choco-cli@0.0.3~prepublish: choco-cli@0.0.3
+11 silly lifecycle choco-cli@0.0.3~prepublish: no script for prepublish, continuing
+12 info lifecycle choco-cli@0.0.3~prepare: choco-cli@0.0.3
+13 silly lifecycle choco-cli@0.0.3~prepare: no script for prepare, continuing
+14 verbose tar pack [ 'C:\\Users\\Jeferson\\AppData\\Roaming\\npm-cache\\choco-cli\\0.0.3\\package.tgz',
+14 verbose tar pack   'C:\\Users\\Jeferson\\prog\\choco-cli' ]
+15 verbose tarball C:\Users\Jeferson\AppData\Roaming\npm-cache\choco-cli\0.0.3\package.tgz
+16 verbose folder C:\Users\Jeferson\prog\choco-cli
+17 verbose addLocalTarball adding from inside cache C:\Users\Jeferson\AppData\Roaming\npm-cache\choco-cli\0.0.3\package.tgz
+18 verbose correctMkdir C:\Users\Jeferson\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+19 silly cache afterAdd choco-cli@0.0.3
+20 verbose afterAdd C:\Users\Jeferson\AppData\Roaming\npm-cache\choco-cli\0.0.3\package\package.json not in flight; writing
+21 verbose correctMkdir C:\Users\Jeferson\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+22 verbose afterAdd C:\Users\Jeferson\AppData\Roaming\npm-cache\choco-cli\0.0.3\package\package.json written
+23 silly publish { name: 'choco-cli',
+23 silly publish   version: '0.0.3',
+23 silly publish   description: 'Chocoland.js toolkits',
+23 silly publish   main: './bin/choco.js',
+23 silly publish   scripts: { test: 'standard --fix && tman' },
+23 silly publish   keywords: [ 'chocoland.js', 'choco', 'toolkit' ],
+23 silly publish   repository:
+23 silly publish    { type: 'git',
+23 silly publish      url: 'git+https://github.com/chocoland/choco_cli.git' },
+23 silly publish   author: { name: 'Jeferson De Freitas' },
+23 silly publish   license: 'GPL-3.0',
+23 silly publish   bin: { choco: './bin/choco.js' },
+23 silly publish   dependencies:
+23 silly publish    { 'js-yaml': '^3.8.1',
+23 silly publish      mime: '^1.3.4',
+23 silly publish      spdy: '^3.4.4',
+23 silly publish      watch: '^1.0.2' },
+23 silly publish   readme: '# How to install\r\n\r\n```fish\r\n# npm i -g choco-cli\r\n```\r\n## Choco server with config file\r\n\r\n```fish\r\n$ cd any/path\r\n$ touch choco.json\r\n$ nano choco.json\r\n```\r\n```json\r\n{\r\n  "server": {\r\n    "path": "./public-folder",\r\n    "port": 3000,\r\n    "key": "../path/to/server.key",\r\n    "cert": "../path/to/server.crt"\r\n  }\r\n}\r\n```\r\n\r\n## Choco server with commands\r\n\r\n```fish\r\nusage: choco server [path] [options]\'\r\n\r\noptions:\'\r\n  -d           dir(./)\'\r\n  -p           Port to use [3000]\'\r\n  -a           Address to use [0.0.0.0]\'\r\n  -U           Use UTC time format in log messages.\'\r\n\r\n  -s           Enable https and set the path to cert and key.\'\r\n  -c           Path to ssl cert file.\'\r\n  -k           Path to ssl key file.\'\r\n\r\n  -h --help    Print this list and exit.\'\r\n```\r\n\r\n## listen server \r\n\r\n```fish\r\n$ choco server\r\n```\r\nor\r\n```fish\r\n$ choco server -d ./public-folder -c ../path/to/server.crt -d ./ -k ../path/to/server.key\r\n```',
+23 silly publish   readmeFilename: 'readme.md',
+23 silly publish   gitHead: '7a215bd46208cbac35e9ec4e2afc1cd00dffe1ff',
+23 silly publish   bugs: { url: 'https://github.com/chocoland/choco_cli/issues' },
+23 silly publish   homepage: 'https://github.com/chocoland/choco_cli#readme',
+23 silly publish   _id: 'choco-cli@0.0.3',
+23 silly publish   _shasum: '93db52ac74d4f1fed7a657bc78bbadfbbb5fc1f7',
+23 silly publish   _from: '.' }
+24 info lifecycle choco-cli@0.0.3~prepublishOnly: choco-cli@0.0.3
+25 silly lifecycle choco-cli@0.0.3~prepublishOnly: no script for prepublishOnly, continuing
+26 verbose getPublishConfig undefined
+27 silly mapToRegistry name choco-cli
+28 silly mapToRegistry using default registry
+29 silly mapToRegistry registry https://registry.npmjs.org/
+30 silly mapToRegistry data Result {
+30 silly mapToRegistry   raw: 'choco-cli',
+30 silly mapToRegistry   scope: null,
+30 silly mapToRegistry   escapedName: 'choco-cli',
+30 silly mapToRegistry   name: 'choco-cli',
+30 silly mapToRegistry   rawSpec: '',
+30 silly mapToRegistry   spec: 'latest',
+30 silly mapToRegistry   type: 'tag' }
+31 silly mapToRegistry uri https://registry.npmjs.org/choco-cli
+32 verbose publish registryBase https://registry.npmjs.org/
+33 silly publish uploading C:\Users\Jeferson\AppData\Roaming\npm-cache\choco-cli\0.0.3\package.tgz
+34 verbose request uri https://registry.npmjs.org/choco-cli
+35 verbose request sending authorization for write operation
+36 info attempt registry request try #1 at 8:10:07 PM
+37 verbose request using bearer token for auth
+38 verbose request id cc43cf401a128f81
+39 http request PUT https://registry.npmjs.org/choco-cli
+40 http 403 https://registry.npmjs.org/choco-cli
+41 verbose headers { 'content-type': 'application/json',
+41 verbose headers   'cache-control': 'max-age=300',
+41 verbose headers   'content-length': '95',
+41 verbose headers   'accept-ranges': 'bytes',
+41 verbose headers   date: 'Fri, 03 Mar 2017 00:10:37 GMT',
+41 verbose headers   via: '1.1 varnish',
+41 verbose headers   connection: 'keep-alive',
+41 verbose headers   'x-served-by': 'cache-atl6238-ATL',
+41 verbose headers   'x-cache': 'MISS',
+41 verbose headers   'x-cache-hits': '0',
+41 verbose headers   'x-timer': 'S1488499836.812913,VS0,VE880',
+41 verbose headers   vary: 'Accept-Encoding' }
+42 verbose request invalidating C:\Users\Jeferson\AppData\Roaming\npm-cache\registry.npmjs.org\choco-cli on PUT
+43 error publish Failed PUT 403
+44 verbose stack Error: "You cannot publish over the previously published version 0.0.3." : choco-cli
+44 verbose stack     at makeError (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:304:12)
+44 verbose stack     at CachingRegistryClient.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:292:14)
+44 verbose stack     at Request._callback (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:212:14)
+44 verbose stack     at Request.self.callback (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:186:22)
+44 verbose stack     at emitTwo (events.js:106:13)
+44 verbose stack     at Request.emit (events.js:192:7)
+44 verbose stack     at Request.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:1081:10)
+44 verbose stack     at emitOne (events.js:96:13)
+44 verbose stack     at Request.emit (events.js:189:7)
+44 verbose stack     at IncomingMessage.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:1001:12)
+45 verbose statusCode 403
+46 verbose pkgid choco-cli
+47 verbose cwd C:\Users\Jeferson\prog\choco-cli
+48 error Windows_NT 10.0.14986
+49 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "publish"
+50 error node v7.5.0
+51 error npm  v4.1.2
+52 error code E403
+53 error "You cannot publish over the previously published version 0.0.3." : choco-cli
+54 error If you need help, you may report this error at:
+54 error     <https://github.com/npm/npm/issues>
+55 verbose exit [ 1, true ]
