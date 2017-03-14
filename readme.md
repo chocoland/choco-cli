@@ -10,15 +10,12 @@ $ cd any/path
 $ touch choco.json
 $ nano choco.json
 ```
-```json
-{
-  "server": {
-    "path": "./public-folder",
-    "port": 3000,
-    "key": "../path/to/server.key",
-    "cert": "../path/to/server.crt"
-  }
-}
+```yaml
+server:
+  path: "./public-folder"
+  port: 3000
+  key: "../path/to/server.key"
+  cert: "../path/to/server.crt"
 ```
 
 ## Choco server with commands
