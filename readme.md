@@ -7,8 +7,8 @@
 
 ```fish
 $ cd any/path
-$ touch choco.json
-$ nano choco.json
+$ touch choco.yml
+$ nano choco.yml
 ```
 ```yaml
 server:
