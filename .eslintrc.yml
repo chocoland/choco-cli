@@ -126,4 +126,4 @@ rules:
   promise/no-return-wrap: "error"
   promise/param-names: "error"
   promise/no-native: "off"
-  promise/no-nesting: "warn"
+  promise/no-nesting: "off"
