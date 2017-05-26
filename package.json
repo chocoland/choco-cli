@@ -1,6 +1,6 @@
 {
   "name": "choco-cli",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "Chocoland.js toolkits",
   "main": "./bin/choco.js",
   "scripts": {
